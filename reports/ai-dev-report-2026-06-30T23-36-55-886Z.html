@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<title>AI開発プロセス診断レポート</title>
+<style>
+  :root { color-scheme: light; }
+  body { font-family: -apple-system, "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif; max-width: 960px; margin: 0 auto; padding: 32px 24px 80px; background: #f7f8fa; color: #1f2328; }
+  h1 { font-size: 1.6rem; }
+  h2 { font-size: 1.25rem; margin-top: 2.2rem; border-bottom: 2px solid #e1e4e8; padding-bottom: 6px; }
+  h3 { font-size: 1.05rem; margin-top: 1.4rem; }
+  .meta { color: #57606a; font-size: 0.9rem; }
+  .badge { display: inline-block; padding: 2px 10px; border-radius: 999px; font-size: 0.8rem; font-weight: 600; }
+  .badge.light { background: #ddf4ff; color: #0969da; }
+  .badge.detailed { background: #fff1e5; color: #bc4c00; }
+  .score-overall { font-size: 2.4rem; font-weight: 700; }
+  .score-card { background: #fff; border: 1px solid #e1e4e8; border-radius: 10px; padding: 16px 20px; margin-bottom: 14px; }
+  .score-card .score-bar-track { background: #eaeef2; border-radius: 6px; height: 10px; overflow: hidden; margin: 8px 0 12px; }
+  .score-card .score-bar-fill { height: 100%; border-radius: 6px; }
+  .score-good .score-bar-fill { background: #2da44e; }
+  .score-mid .score-bar-fill { background: #bf8700; }
+  .score-bad .score-bar-fill { background: #cf222e; }
+  .score-num { font-weight: 700; }
+  ul { padding-left: 1.3rem; }
+  li { margin-bottom: 4px; }
+  table { border-collapse: collapse; width: 100%; margin-top: 8px; font-size: 0.88rem; }
+  th, td { border: 1px solid #e1e4e8; padding: 6px 10px; text-align: left; }
+  th { background: #f6f8fa; }
+  .section { background: #fff; border: 1px solid #e1e4e8; border-radius: 10px; padding: 18px 22px; margin-top: 14px; }
+  .label-reason { color: #cf222e; font-weight: 600; }
+  .label-improve { color: #1a7f37; font-weight: 600; }
+  code { background: #f6f8fa; padding: 1px 5px; border-radius: 4px; }
+</style>
+</head>
+<body>
+  <h1>AI開発プロセス診断レポート <span class="badge detailed">詳細レポート</span></h1>
+  <p class="meta">生成日時: 2026-06-30T23:36:55.884Z ／ 比較基準: <code>main</code></p>
+
+  <div class="section">
+    <h2 style="margin-top:0;border:0;padding:0;">変更概要</h2>
+    <p>main を基準に 24 ファイルが変更され、+3647/-1 行の差分があります。(テスト3件 / DB関連0件 / API関連0件 / docs0件)</p>
+  </div>
+
+  <div class="section">
+    <h2 style="margin-top:0;border:0;padding:0;">詳細レポートと判定した理由</h2>
+    <ul>
+      <li>変更ファイル数が多い (24件 &gt; 8件)</li><li>追加行数が多い (3647行 &gt; 150行)</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2 style="margin-top:0;border:0;padding:0;">総合AI開発準備スコア</h2>
+    <div class="score-overall">10 <span style="font-size:1rem;color:#57606a;">/ 100</span></div>
+  </div>
+
+  <h2>カテゴリ別スコア</h2>
+  <div class="score-card score-bad">
+    <h3 style="margin-top:0;">要件準備スコア — <span class="score-num">0</span> / 100</h3>
+    <div class="score-bar-track"><div class="score-bar-fill" style="width: 0%;"></div></div>
+    <p class="label-reason">減点理由</p>
+    <ul><li>要件ドキュメント(requirements.md 等)が見つからない</li></ul>
+    <p class="label-improve">改善案</p>
+    <ul><li>docs/requirements.md を作成し、何を作るかを明文化する</li></ul>
+  </div>
+  <div class="score-card score-bad">
+    <h3 style="margin-top:0;">要件品質スコア — <span class="score-num">0</span> / 100</h3>
+    <div class="score-bar-track"><div class="score-bar-fill" style="width: 0%;"></div></div>
+    <p class="label-reason">減点理由</p>
+    <ul><li>「何を作るか」が明文化されていない</li><li>「何を作らないか(非対象範囲)」が未定義</li><li>正常系の振る舞いが未定義</li><li>異常系が未定義</li><li>権限条件が未定義</li><li>状態遷移が未定義</li><li>完了条件が検証可能になっていない</li><li>受け入れ条件が未定義</li></ul>
+    <p class="label-improve">改善案</p>
+    <ul><li>目的・概要・ゴールのセクションを追加する</li><li>対象外・非ゴールのセクションを追加し、AIの作業範囲が膨らまないようにする</li><li>代表的な正常系シナリオを箇条書きで追記する</li><li>エラー時のレスポンスと画面表示を定義する</li><li>誰がこの機能を使えるか(ロール・権限)を明記する</li><li>対象データ・処理の状態遷移図または一覧を追記する</li><li>誰が見ても判定できる完了条件(Done条件)を箇条書きで定義する</li><li>Given-When-Then 形式などで受け入れ条件を追記する</li></ul>
+  </div>
+  <div class="score-card score-bad">
+    <h3 style="margin-top:0;">設計準備スコア — <span class="score-num">0</span> / 100</h3>
+    <div class="score-bar-track"><div class="score-bar-fill" style="width: 0%;"></div></div>
+    <p class="label-reason">減点理由</p>
+    <ul><li>設計ドキュメント(design.md)が見つからない</li><li>API仕様ドキュメント(api.md)が見つからない</li><li>DB設計ドキュメント(database.md)が見つからない</li><li>シーケンス図ドキュメント(sequence.md)が見つからない</li></ul>
+    <p class="label-improve">改善案</p>
+    <ul><li>docs/design.md を作成し、変更方針を明文化する</li><li>docs/api.md を作成し、エンドポイント仕様を明文化する</li><li>docs/database.md を作成し、テーブル・カラム変更を明文化する</li><li>docs/sequence.md を作成し、処理の流れを図示する</li></ul>
+  </div>
+  <div class="score-card score-bad">
+    <h3 style="margin-top:0;">設計品質スコア — <span class="score-num">29</span> / 100</h3>
+    <div class="score-bar-track"><div class="score-bar-fill" style="width: 29%;"></div></div>
+    <p class="label-reason">減点理由</p>
+    <ul><li>変更対象が明文化されていない</li><li>既存仕様への影響が未記載</li><li>設計上のエラーケースが未記載</li><li>ロールバック方針が未記載</li><li>処理フローの説明が不足</li></ul>
+    <p class="label-improve">改善案</p>
+    <ul><li>変更するファイル・モジュールを一覧化する</li><li>既存機能・他モジュールへの影響範囲を記載する</li><li>想定されるエラーケースとハンドリング方針を記載する</li><li>問題発生時の切り戻し手順を記載する</li><li>処理の流れを箇条書きまたはシーケンス図で説明する</li></ul>
+  </div>
+  <div class="score-card score-mid">
+    <h3 style="margin-top:0;">テスト準備スコア — <span class="score-num">50</span> / 100</h3>
+    <div class="score-bar-track"><div class="score-bar-fill" style="width: 50%;"></div></div>
+    <p class="label-reason">減点理由</p>
+    <ul><li>テスト計画ドキュメント(test.md)が見つからない</li></ul>
+    <p class="label-improve">改善案</p>
+    <ul><li>docs/test.md を作成し、テスト観点を明文化する</li></ul>
+  </div>
+  <div class="score-card score-bad">
+    <h3 style="margin-top:0;">テスト品質スコア — <span class="score-num">0</span> / 100</h3>
+    <div class="score-bar-track"><div class="score-bar-fill" style="width: 0%;"></div></div>
+    <p class="label-reason">減点理由</p>
+    <ul><li>正常系のテスト観点が未記載</li><li>異常系のテスト観点が未記載</li><li>権限まわりのテスト観点が未記載</li><li>境界値のテスト観点が未記載</li><li>既存機能への影響確認(デグレ確認)が未記載</li><li>手動確認項目が未記載</li><li>実行したテストコマンドが記載されていない</li></ul>
+    <p class="label-improve">改善案</p>
+    <ul><li>正常系のテストケースを明記する</li><li>異常系・例外系のテストケースを明記する</li><li>権限・ロールごとの挙動確認を追記する</li><li>境界値・上限下限のテストケースを追記する</li><li>既存機能に対する回帰確認の観点を追記する</li><li>自動テストでカバーできない手動確認項目を追記する</li><li>実際に実行したテストコマンドと結果を記載する</li></ul>
+  </div>
+  <div class="score-card score-bad">
+    <h3 style="margin-top:0;">AI指示品質スコア — <span class="score-num">0</span> / 100</h3>
+    <div class="score-bar-track"><div class="score-bar-fill" style="width: 0%;"></div></div>
+    <p class="label-reason">減点理由</p>
+    <ul><li>AIへの指示に目的が明記されていない</li><li>変更範囲が限定されていない</li><li>禁止事項が明記されていない</li><li>参照すべきファイルが指定されていない</li><li>完了条件が明記されていない</li><li>「勝手に判断して進めないこと」が明記されていない</li><li>AIへの出力形式の指定がない</li></ul>
+    <p class="label-improve">改善案</p>
+    <ul><li>何のためにこの変更を行うかをAI指示の冒頭に明記する</li><li>触ってよいファイル・触ってはいけないファイルを明記する</li><li>AIにやってほしくないことを明示的に禁止事項として書く</li><li>AIが読むべき既存ファイル・ドキュメントを指定する</li><li>どうなったら完了とみなすかをAI指示に明記する</li><li>不明点がある場合は確認を取ってから進めるよう明記する</li><li>報告や成果物の出力形式(構成・フォーマット)を指定する</li></ul>
+  </div>
+
+  <div class="section">
+    <h2 style="margin-top:0;border:0;padding:0;">テスト有無</h2>
+    <p>テストファイルの変更あり (3件)</p>
+  </div>
+
+  <div class="section">
+    <h2 style="margin-top:0;border:0;padding:0;">次回必要なドキュメント</h2>
+    <ul><li>requirements.md (要件定義) が見つからなかったため、次回はAI着手前に準備する</li><li>design.md (設計) が見つからなかったため、次回はAI着手前に準備する</li><li>api.md (API仕様) が見つからなかったため、次回はAI着手前に準備する</li><li>database.md (DB設計) が見つからなかったため、次回はAI着手前に準備する</li><li>sequence.md (シーケンス図) が見つからなかったため、次回はAI着手前に準備する</li><li>test.md (テスト計画) が見つからなかったため、次回はAI着手前に準備する</li><li>ai-instructions.md (AIへの指示) が見つからなかったため、次回はAI着手前に準備する</li></ul>
+  </div>
+
+  <div class="section">
+    <h2 style="margin-top:0;border:0;padding:0;">AIに任せる前に足りなかった情報</h2>
+    <ul><li>[要件準備スコア] 要件ドキュメント(requirements.md 等)が見つからない</li><li>[要件品質スコア] 「何を作るか」が明文化されていない</li><li>[要件品質スコア] 「何を作らないか(非対象範囲)」が未定義</li><li>[要件品質スコア] 正常系の振る舞いが未定義</li><li>[要件品質スコア] 異常系が未定義</li><li>[要件品質スコア] 権限条件が未定義</li><li>[要件品質スコア] 状態遷移が未定義</li><li>[要件品質スコア] 完了条件が検証可能になっていない</li><li>[要件品質スコア] 受け入れ条件が未定義</li><li>[設計準備スコア] 設計ドキュメント(design.md)が見つからない</li><li>[設計準備スコア] API仕様ドキュメント(api.md)が見つからない</li><li>[設計準備スコア] DB設計ドキュメント(database.md)が見つからない</li><li>[設計準備スコア] シーケンス図ドキュメント(sequence.md)が見つからない</li><li>[設計品質スコア] 変更対象が明文化されていない</li><li>[設計品質スコア] 既存仕様への影響が未記載</li><li>[設計品質スコア] 設計上のエラーケースが未記載</li><li>[設計品質スコア] ロールバック方針が未記載</li><li>[設計品質スコア] 処理フローの説明が不足</li><li>[テスト準備スコア] テスト計画ドキュメント(test.md)が見つからない</li><li>[テスト品質スコア] 正常系のテスト観点が未記載</li><li>[テスト品質スコア] 異常系のテスト観点が未記載</li><li>[テスト品質スコア] 権限まわりのテスト観点が未記載</li><li>[テスト品質スコア] 境界値のテスト観点が未記載</li><li>[テスト品質スコア] 既存機能への影響確認(デグレ確認)が未記載</li><li>[テスト品質スコア] 手動確認項目が未記載</li><li>[テスト品質スコア] 実行したテストコマンドが記載されていない</li><li>[AI指示品質スコア] AIへの指示に目的が明記されていない</li><li>[AI指示品質スコア] 変更範囲が限定されていない</li><li>[AI指示品質スコア] 禁止事項が明記されていない</li><li>[AI指示品質スコア] 参照すべきファイルが指定されていない</li><li>[AI指示品質スコア] 完了条件が明記されていない</li><li>[AI指示品質スコア] 「勝手に判断して進めないこと」が明記されていない</li><li>[AI指示品質スコア] AIへの出力形式の指定がない</li></ul>
+  </div>
+
+  <div class="section">
+    <h2 style="margin-top:0;border:0;padding:0;">人間が確認すべきポイント</h2>
+    <ul><li>AIが生成した差分が要件・設計ドキュメントの意図と一致しているか確認する</li><li>要件準備スコアが低いため、該当ドキュメントの内容を人間がレビューする</li><li>要件品質スコアが低いため、該当ドキュメントの内容を人間がレビューする</li><li>設計準備スコアが低いため、該当ドキュメントの内容を人間がレビューする</li><li>設計品質スコアが低いため、該当ドキュメントの内容を人間がレビューする</li><li>テスト準備スコアが低いため、該当ドキュメントの内容を人間がレビューする</li><li>テスト品質スコアが低いため、該当ドキュメントの内容を人間がレビューする</li><li>AI指示品質スコアが低いため、該当ドキュメントの内容を人間がレビューする</li></ul>
+  </div>
+
+  <div class="section">
+    <h2 style="margin-top:0;border:0;padding:0;">リスク</h2>
+    <ul><li>特筆すべき高リスク要因は検出されませんでした</li></ul>
+  </div>
+
+  <div class="section">
+    <h2 style="margin-top:0;border:0;padding:0;">変更ファイル一覧</h2>
+    <table>
+      <thead><tr><th>ファイル</th><th>状態</th><th>追加</th><th>削除</th></tr></thead>
+      <tbody>
+        <tr><td>.gitignore</td><td>A</td><td>+8</td><td>-0</td></tr>
+        <tr><td>README.md</td><td>M</td><td>+161</td><td>-1</td></tr>
+        <tr><td>package-lock.json</td><td>A</td><td>+1644</td><td>-0</td></tr>
+        <tr><td>package.json</td><td>A</td><td>+36</td><td>-0</td></tr>
+        <tr><td>reports/.gitkeep</td><td>A</td><td>+0</td><td>-0</td></tr>
+        <tr><td>src/analyzers/docsScanner.ts</td><td>A</td><td>+117</td><td>-0</td></tr>
+        <tr><td>src/analyzers/fileClassifier.ts</td><td>A</td><td>+69</td><td>-0</td></tr>
+        <tr><td>src/cli.ts</td><td>A</td><td>+77</td><td>-0</td></tr>
+        <tr><td>src/git/gitDiffCollector.ts</td><td>A</td><td>+106</td><td>-0</td></tr>
+        <tr><td>src/report/buildReportData.ts</td><td>A</td><td>+183</td><td>-0</td></tr>
+        <tr><td>src/report/htmlRenderer.ts</td><td>A</td><td>+29</td><td>-0</td></tr>
+        <tr><td>src/report/jsonRenderer.ts</td><td>A</td><td>+5</td><td>-0</td></tr>
+        <tr><td>src/report/markdownRenderer.ts</td><td>A</td><td>+125</td><td>-0</td></tr>
+        <tr><td>src/report/writeReports.ts</td><td>A</td><td>+40</td><td>-0</td></tr>
+        <tr><td>src/scoring/context.ts</td><td>A</td><td>+29</td><td>-0</td></tr>
+        <tr><td>src/scoring/rules.ts</td><td>A</td><td>+440</td><td>-0</td></tr>
+        <tr><td>src/scoring/scorer.ts</td><td>A</td><td>+60</td><td>-0</td></tr>
+        <tr><td>src/scoring/sizeClassifier.ts</td><td>A</td><td>+80</td><td>-0</td></tr>
+        <tr><td>src/templates/report.hbs</td><td>A</td><td>+133</td><td>-0</td></tr>
+        <tr><td>src/types.ts</td><td>A</td><td>+113</td><td>-0</td></tr>
+        <tr><td>tests/fileClassifier.test.ts</td><td>A</td><td>+61</td><td>-0</td></tr>
+        <tr><td>tests/scorer.test.ts</td><td>A</td><td>+63</td><td>-0</td></tr>
+        <tr><td>tests/sizeClassifier.test.ts</td><td>A</td><td>+50</td><td>-0</td></tr>
+        <tr><td>tsconfig.json</td><td>A</td><td>+18</td><td>-0</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+</body>
+</html>

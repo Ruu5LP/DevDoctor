@@ -1,0 +1,690 @@
+{
+  "generatedAt": "2026-06-30T23:36:55.884Z",
+  "baseRef": "main",
+  "mode": "detailed",
+  "diff": {
+    "baseRef": "main",
+    "files": [
+      {
+        "path": ".gitignore",
+        "status": "A",
+        "insertions": 8,
+        "deletions": 0
+      },
+      {
+        "path": "README.md",
+        "status": "M",
+        "insertions": 161,
+        "deletions": 1
+      },
+      {
+        "path": "package-lock.json",
+        "status": "A",
+        "insertions": 1644,
+        "deletions": 0
+      },
+      {
+        "path": "package.json",
+        "status": "A",
+        "insertions": 36,
+        "deletions": 0
+      },
+      {
+        "path": "reports/.gitkeep",
+        "status": "A",
+        "insertions": 0,
+        "deletions": 0
+      },
+      {
+        "path": "src/analyzers/docsScanner.ts",
+        "status": "A",
+        "insertions": 117,
+        "deletions": 0
+      },
+      {
+        "path": "src/analyzers/fileClassifier.ts",
+        "status": "A",
+        "insertions": 69,
+        "deletions": 0
+      },
+      {
+        "path": "src/cli.ts",
+        "status": "A",
+        "insertions": 77,
+        "deletions": 0
+      },
+      {
+        "path": "src/git/gitDiffCollector.ts",
+        "status": "A",
+        "insertions": 106,
+        "deletions": 0
+      },
+      {
+        "path": "src/report/buildReportData.ts",
+        "status": "A",
+        "insertions": 183,
+        "deletions": 0
+      },
+      {
+        "path": "src/report/htmlRenderer.ts",
+        "status": "A",
+        "insertions": 29,
+        "deletions": 0
+      },
+      {
+        "path": "src/report/jsonRenderer.ts",
+        "status": "A",
+        "insertions": 5,
+        "deletions": 0
+      },
+      {
+        "path": "src/report/markdownRenderer.ts",
+        "status": "A",
+        "insertions": 125,
+        "deletions": 0
+      },
+      {
+        "path": "src/report/writeReports.ts",
+        "status": "A",
+        "insertions": 40,
+        "deletions": 0
+      },
+      {
+        "path": "src/scoring/context.ts",
+        "status": "A",
+        "insertions": 29,
+        "deletions": 0
+      },
+      {
+        "path": "src/scoring/rules.ts",
+        "status": "A",
+        "insertions": 440,
+        "deletions": 0
+      },
+      {
+        "path": "src/scoring/scorer.ts",
+        "status": "A",
+        "insertions": 60,
+        "deletions": 0
+      },
+      {
+        "path": "src/scoring/sizeClassifier.ts",
+        "status": "A",
+        "insertions": 80,
+        "deletions": 0
+      },
+      {
+        "path": "src/templates/report.hbs",
+        "status": "A",
+        "insertions": 133,
+        "deletions": 0
+      },
+      {
+        "path": "src/types.ts",
+        "status": "A",
+        "insertions": 113,
+        "deletions": 0
+      },
+      {
+        "path": "tests/fileClassifier.test.ts",
+        "status": "A",
+        "insertions": 61,
+        "deletions": 0
+      },
+      {
+        "path": "tests/scorer.test.ts",
+        "status": "A",
+        "insertions": 63,
+        "deletions": 0
+      },
+      {
+        "path": "tests/sizeClassifier.test.ts",
+        "status": "A",
+        "insertions": 50,
+        "deletions": 0
+      },
+      {
+        "path": "tsconfig.json",
+        "status": "A",
+        "insertions": 18,
+        "deletions": 0
+      }
+    ],
+    "totalInsertions": 3647,
+    "totalDeletions": 1,
+    "totalFilesChanged": 24
+  },
+  "classification": {
+    "testFileCount": 3,
+    "dbFileCount": 0,
+    "apiFileCount": 0,
+    "docFileCount": 0
+  },
+  "sizeJudgement": {
+    "mode": "detailed",
+    "reasons": [
+      "変更ファイル数が多い (24件 > 8件)",
+      "追加行数が多い (3647行 > 150行)"
+    ]
+  },
+  "overall": {
+    "score": 10,
+    "categories": [
+      {
+        "id": "requirementsReadiness",
+        "label": "要件準備スコア",
+        "score": 0,
+        "maxScore": 100,
+        "ruleResults": [
+          {
+            "id": "req-readiness-doc-exists",
+            "label": "requirements.md が存在する",
+            "passed": false,
+            "weight": 1,
+            "deductionReason": "要件ドキュメント(requirements.md 等)が見つからない",
+            "improvement": "docs/requirements.md を作成し、何を作るかを明文化する"
+          }
+        ],
+        "deductionReasons": [
+          "要件ドキュメント(requirements.md 等)が見つからない"
+        ],
+        "improvements": [
+          "docs/requirements.md を作成し、何を作るかを明文化する"
+        ]
+      },
+      {
+        "id": "requirementsQuality",
+        "label": "要件品質スコア",
+        "score": 0,
+        "maxScore": 100,
+        "ruleResults": [
+          {
+            "id": "req-quality-what-to-build",
+            "label": "何を作るかが明確",
+            "passed": false,
+            "weight": 1,
+            "deductionReason": "「何を作るか」が明文化されていない",
+            "improvement": "目的・概要・ゴールのセクションを追加する"
+          },
+          {
+            "id": "req-quality-what-not-to-build",
+            "label": "何を作らないかが明確",
+            "passed": false,
+            "weight": 1,
+            "deductionReason": "「何を作らないか(非対象範囲)」が未定義",
+            "improvement": "対象外・非ゴールのセクションを追加し、AIの作業範囲が膨らまないようにする"
+          },
+          {
+            "id": "req-quality-happy-path",
+            "label": "正常系がある",
+            "passed": false,
+            "weight": 1,
+            "deductionReason": "正常系の振る舞いが未定義",
+            "improvement": "代表的な正常系シナリオを箇条書きで追記する"
+          },
+          {
+            "id": "req-quality-error-path",
+            "label": "異常系がある",
+            "passed": false,
+            "weight": 1,
+            "deductionReason": "異常系が未定義",
+            "improvement": "エラー時のレスポンスと画面表示を定義する"
+          },
+          {
+            "id": "req-quality-permission",
+            "label": "権限条件がある",
+            "passed": false,
+            "weight": 1,
+            "deductionReason": "権限条件が未定義",
+            "improvement": "誰がこの機能を使えるか(ロール・権限)を明記する"
+          },
+          {
+            "id": "req-quality-state-transition",
+            "label": "状態遷移がある",
+            "passed": false,
+            "weight": 1,
+            "deductionReason": "状態遷移が未定義",
+            "improvement": "対象データ・処理の状態遷移図または一覧を追記する"
+          },
+          {
+            "id": "req-quality-verifiable-done",
+            "label": "完了条件が検証可能",
+            "passed": false,
+            "weight": 1,
+            "deductionReason": "完了条件が検証可能になっていない",
+            "improvement": "誰が見ても判定できる完了条件(Done条件)を箇条書きで定義する"
+          },
+          {
+            "id": "req-quality-acceptance-criteria",
+            "label": "受け入れ条件がある",
+            "passed": false,
+            "weight": 1,
+            "deductionReason": "受け入れ条件が未定義",
+            "improvement": "Given-When-Then 形式などで受け入れ条件を追記する"
+          }
+        ],
+        "deductionReasons": [
+          "「何を作るか」が明文化されていない",
+          "「何を作らないか(非対象範囲)」が未定義",
+          "正常系の振る舞いが未定義",
+          "異常系が未定義",
+          "権限条件が未定義",
+          "状態遷移が未定義",
+          "完了条件が検証可能になっていない",
+          "受け入れ条件が未定義"
+        ],
+        "improvements": [
+          "目的・概要・ゴールのセクションを追加する",
+          "対象外・非ゴールのセクションを追加し、AIの作業範囲が膨らまないようにする",
+          "代表的な正常系シナリオを箇条書きで追記する",
+          "エラー時のレスポンスと画面表示を定義する",
+          "誰がこの機能を使えるか(ロール・権限)を明記する",
+          "対象データ・処理の状態遷移図または一覧を追記する",
+          "誰が見ても判定できる完了条件(Done条件)を箇条書きで定義する",
+          "Given-When-Then 形式などで受け入れ条件を追記する"
+        ]
+      },
+      {
+        "id": "designReadiness",
+        "label": "設計準備スコア",
+        "score": 0,
+        "maxScore": 100,
+        "ruleResults": [
+          {
+            "id": "design-readiness-design-doc",
+            "label": "design.md が存在する",
+            "passed": false,
+            "weight": 1,
+            "deductionReason": "設計ドキュメント(design.md)が見つからない",
+            "improvement": "docs/design.md を作成し、変更方針を明文化する"
+          },
+          {
+            "id": "design-readiness-api-doc",
+            "label": "api.md が存在する",
+            "passed": false,
+            "weight": 1,
+            "deductionReason": "API仕様ドキュメント(api.md)が見つからない",
+            "improvement": "docs/api.md を作成し、エンドポイント仕様を明文化する"
+          },
+          {
+            "id": "design-readiness-database-doc",
+            "label": "database.md が存在する",
+            "passed": false,
+            "weight": 1,
+            "deductionReason": "DB設計ドキュメント(database.md)が見つからない",
+            "improvement": "docs/database.md を作成し、テーブル・カラム変更を明文化する"
+          },
+          {
+            "id": "design-readiness-sequence-doc",
+            "label": "sequence.md が存在する",
+            "passed": false,
+            "weight": 1,
+            "deductionReason": "シーケンス図ドキュメント(sequence.md)が見つからない",
+            "improvement": "docs/sequence.md を作成し、処理の流れを図示する"
+          }
+        ],
+        "deductionReasons": [
+          "設計ドキュメント(design.md)が見つからない",
+          "API仕様ドキュメント(api.md)が見つからない",
+          "DB設計ドキュメント(database.md)が見つからない",
+          "シーケンス図ドキュメント(sequence.md)が見つからない"
+        ],
+        "improvements": [
+          "docs/design.md を作成し、変更方針を明文化する",
+          "docs/api.md を作成し、エンドポイント仕様を明文化する",
+          "docs/database.md を作成し、テーブル・カラム変更を明文化する",
+          "docs/sequence.md を作成し、処理の流れを図示する"
+        ]
+      },
+      {
+        "id": "designQuality",
+        "label": "設計品質スコア",
+        "score": 29,
+        "maxScore": 100,
+        "ruleResults": [
+          {
+            "id": "design-quality-target-clear",
+            "label": "変更対象が明確",
+            "passed": false,
+            "weight": 1,
+            "deductionReason": "変更対象が明文化されていない",
+            "improvement": "変更するファイル・モジュールを一覧化する"
+          },
+          {
+            "id": "design-quality-impact",
+            "label": "既存仕様への影響が書かれている",
+            "passed": false,
+            "weight": 1,
+            "deductionReason": "既存仕様への影響が未記載",
+            "improvement": "既存機能・他モジュールへの影響範囲を記載する"
+          },
+          {
+            "id": "design-quality-db-reason",
+            "label": "DB変更理由がある",
+            "passed": true,
+            "weight": 1
+          },
+          {
+            "id": "design-quality-api-io",
+            "label": "API入出力がある",
+            "passed": true,
+            "weight": 1
+          },
+          {
+            "id": "design-quality-error-cases",
+            "label": "エラーケースがある",
+            "passed": false,
+            "weight": 1,
+            "deductionReason": "設計上のエラーケースが未記載",
+            "improvement": "想定されるエラーケースとハンドリング方針を記載する"
+          },
+          {
+            "id": "design-quality-rollback",
+            "label": "ロールバック方針がある",
+            "passed": false,
+            "weight": 1,
+            "deductionReason": "ロールバック方針が未記載",
+            "improvement": "問題発生時の切り戻し手順を記載する"
+          },
+          {
+            "id": "design-quality-flow",
+            "label": "処理フローが説明されている",
+            "passed": false,
+            "weight": 1,
+            "deductionReason": "処理フローの説明が不足",
+            "improvement": "処理の流れを箇条書きまたはシーケンス図で説明する"
+          }
+        ],
+        "deductionReasons": [
+          "変更対象が明文化されていない",
+          "既存仕様への影響が未記載",
+          "設計上のエラーケースが未記載",
+          "ロールバック方針が未記載",
+          "処理フローの説明が不足"
+        ],
+        "improvements": [
+          "変更するファイル・モジュールを一覧化する",
+          "既存機能・他モジュールへの影響範囲を記載する",
+          "想定されるエラーケースとハンドリング方針を記載する",
+          "問題発生時の切り戻し手順を記載する",
+          "処理の流れを箇条書きまたはシーケンス図で説明する"
+        ]
+      },
+      {
+        "id": "testReadiness",
+        "label": "テスト準備スコア",
+        "score": 50,
+        "maxScore": 100,
+        "ruleResults": [
+          {
+            "id": "test-readiness-doc-exists",
+            "label": "test.md が存在する",
+            "passed": false,
+            "weight": 1,
+            "deductionReason": "テスト計画ドキュメント(test.md)が見つからない",
+            "improvement": "docs/test.md を作成し、テスト観点を明文化する"
+          },
+          {
+            "id": "test-readiness-test-files",
+            "label": "テストファイルがある",
+            "passed": true,
+            "weight": 1
+          }
+        ],
+        "deductionReasons": [
+          "テスト計画ドキュメント(test.md)が見つからない"
+        ],
+        "improvements": [
+          "docs/test.md を作成し、テスト観点を明文化する"
+        ]
+      },
+      {
+        "id": "testQuality",
+        "label": "テスト品質スコア",
+        "score": 0,
+        "maxScore": 100,
+        "ruleResults": [
+          {
+            "id": "test-quality-happy-path",
+            "label": "正常系",
+            "passed": false,
+            "weight": 1,
+            "deductionReason": "正常系のテスト観点が未記載",
+            "improvement": "正常系のテストケースを明記する"
+          },
+          {
+            "id": "test-quality-error-path",
+            "label": "異常系",
+            "passed": false,
+            "weight": 1,
+            "deductionReason": "異常系のテスト観点が未記載",
+            "improvement": "異常系・例外系のテストケースを明記する"
+          },
+          {
+            "id": "test-quality-permission",
+            "label": "権限",
+            "passed": false,
+            "weight": 1,
+            "deductionReason": "権限まわりのテスト観点が未記載",
+            "improvement": "権限・ロールごとの挙動確認を追記する"
+          },
+          {
+            "id": "test-quality-boundary",
+            "label": "境界値",
+            "passed": false,
+            "weight": 1,
+            "deductionReason": "境界値のテスト観点が未記載",
+            "improvement": "境界値・上限下限のテストケースを追記する"
+          },
+          {
+            "id": "test-quality-regression",
+            "label": "既存機能への影響",
+            "passed": false,
+            "weight": 1,
+            "deductionReason": "既存機能への影響確認(デグレ確認)が未記載",
+            "improvement": "既存機能に対する回帰確認の観点を追記する"
+          },
+          {
+            "id": "test-quality-manual-check",
+            "label": "手動確認項目",
+            "passed": false,
+            "weight": 1,
+            "deductionReason": "手動確認項目が未記載",
+            "improvement": "自動テストでカバーできない手動確認項目を追記する"
+          },
+          {
+            "id": "test-quality-commands",
+            "label": "実行したテストコマンド",
+            "passed": false,
+            "weight": 1,
+            "deductionReason": "実行したテストコマンドが記載されていない",
+            "improvement": "実際に実行したテストコマンドと結果を記載する"
+          }
+        ],
+        "deductionReasons": [
+          "正常系のテスト観点が未記載",
+          "異常系のテスト観点が未記載",
+          "権限まわりのテスト観点が未記載",
+          "境界値のテスト観点が未記載",
+          "既存機能への影響確認(デグレ確認)が未記載",
+          "手動確認項目が未記載",
+          "実行したテストコマンドが記載されていない"
+        ],
+        "improvements": [
+          "正常系のテストケースを明記する",
+          "異常系・例外系のテストケースを明記する",
+          "権限・ロールごとの挙動確認を追記する",
+          "境界値・上限下限のテストケースを追記する",
+          "既存機能に対する回帰確認の観点を追記する",
+          "自動テストでカバーできない手動確認項目を追記する",
+          "実際に実行したテストコマンドと結果を記載する"
+        ]
+      },
+      {
+        "id": "aiInstructionQuality",
+        "label": "AI指示品質スコア",
+        "score": 0,
+        "maxScore": 100,
+        "ruleResults": [
+          {
+            "id": "ai-quality-purpose",
+            "label": "目的が明確",
+            "passed": false,
+            "weight": 1,
+            "deductionReason": "AIへの指示に目的が明記されていない",
+            "improvement": "何のためにこの変更を行うかをAI指示の冒頭に明記する"
+          },
+          {
+            "id": "ai-quality-scope",
+            "label": "変更範囲が限定されている",
+            "passed": false,
+            "weight": 1,
+            "deductionReason": "変更範囲が限定されていない",
+            "improvement": "触ってよいファイル・触ってはいけないファイルを明記する"
+          },
+          {
+            "id": "ai-quality-prohibitions",
+            "label": "禁止事項がある",
+            "passed": false,
+            "weight": 1,
+            "deductionReason": "禁止事項が明記されていない",
+            "improvement": "AIにやってほしくないことを明示的に禁止事項として書く"
+          },
+          {
+            "id": "ai-quality-references",
+            "label": "参照すべきファイルが指定されている",
+            "passed": false,
+            "weight": 1,
+            "deductionReason": "参照すべきファイルが指定されていない",
+            "improvement": "AIが読むべき既存ファイル・ドキュメントを指定する"
+          },
+          {
+            "id": "ai-quality-done-condition",
+            "label": "完了条件がある",
+            "passed": false,
+            "weight": 1,
+            "deductionReason": "完了条件が明記されていない",
+            "improvement": "どうなったら完了とみなすかをAI指示に明記する"
+          },
+          {
+            "id": "ai-quality-no-assumption",
+            "label": "勝手にやらないことが書かれている",
+            "passed": false,
+            "weight": 1,
+            "deductionReason": "「勝手に判断して進めないこと」が明記されていない",
+            "improvement": "不明点がある場合は確認を取ってから進めるよう明記する"
+          },
+          {
+            "id": "ai-quality-output-format",
+            "label": "出力形式が指定されている",
+            "passed": false,
+            "weight": 1,
+            "deductionReason": "AIへの出力形式の指定がない",
+            "improvement": "報告や成果物の出力形式(構成・フォーマット)を指定する"
+          }
+        ],
+        "deductionReasons": [
+          "AIへの指示に目的が明記されていない",
+          "変更範囲が限定されていない",
+          "禁止事項が明記されていない",
+          "参照すべきファイルが指定されていない",
+          "完了条件が明記されていない",
+          "「勝手に判断して進めないこと」が明記されていない",
+          "AIへの出力形式の指定がない"
+        ],
+        "improvements": [
+          "何のためにこの変更を行うかをAI指示の冒頭に明記する",
+          "触ってよいファイル・触ってはいけないファイルを明記する",
+          "AIにやってほしくないことを明示的に禁止事項として書く",
+          "AIが読むべき既存ファイル・ドキュメントを指定する",
+          "どうなったら完了とみなすかをAI指示に明記する",
+          "不明点がある場合は確認を取ってから進めるよう明記する",
+          "報告や成果物の出力形式(構成・フォーマット)を指定する"
+        ]
+      }
+    ]
+  },
+  "nextDocsNeeded": [
+    {
+      "category": "requirements",
+      "reason": "requirements.md (要件定義) が見つからなかったため、次回はAI着手前に準備する"
+    },
+    {
+      "category": "design",
+      "reason": "design.md (設計) が見つからなかったため、次回はAI着手前に準備する"
+    },
+    {
+      "category": "api",
+      "reason": "api.md (API仕様) が見つからなかったため、次回はAI着手前に準備する"
+    },
+    {
+      "category": "database",
+      "reason": "database.md (DB設計) が見つからなかったため、次回はAI着手前に準備する"
+    },
+    {
+      "category": "sequence",
+      "reason": "sequence.md (シーケンス図) が見つからなかったため、次回はAI着手前に準備する"
+    },
+    {
+      "category": "test",
+      "reason": "test.md (テスト計画) が見つからなかったため、次回はAI着手前に準備する"
+    },
+    {
+      "category": "aiInstructions",
+      "reason": "ai-instructions.md (AIへの指示) が見つからなかったため、次回はAI着手前に準備する"
+    }
+  ],
+  "missingInfoBeforeAi": [
+    "[要件準備スコア] 要件ドキュメント(requirements.md 等)が見つからない",
+    "[要件品質スコア] 「何を作るか」が明文化されていない",
+    "[要件品質スコア] 「何を作らないか(非対象範囲)」が未定義",
+    "[要件品質スコア] 正常系の振る舞いが未定義",
+    "[要件品質スコア] 異常系が未定義",
+    "[要件品質スコア] 権限条件が未定義",
+    "[要件品質スコア] 状態遷移が未定義",
+    "[要件品質スコア] 完了条件が検証可能になっていない",
+    "[要件品質スコア] 受け入れ条件が未定義",
+    "[設計準備スコア] 設計ドキュメント(design.md)が見つからない",
+    "[設計準備スコア] API仕様ドキュメント(api.md)が見つからない",
+    "[設計準備スコア] DB設計ドキュメント(database.md)が見つからない",
+    "[設計準備スコア] シーケンス図ドキュメント(sequence.md)が見つからない",
+    "[設計品質スコア] 変更対象が明文化されていない",
+    "[設計品質スコア] 既存仕様への影響が未記載",
+    "[設計品質スコア] 設計上のエラーケースが未記載",
+    "[設計品質スコア] ロールバック方針が未記載",
+    "[設計品質スコア] 処理フローの説明が不足",
+    "[テスト準備スコア] テスト計画ドキュメント(test.md)が見つからない",
+    "[テスト品質スコア] 正常系のテスト観点が未記載",
+    "[テスト品質スコア] 異常系のテスト観点が未記載",
+    "[テスト品質スコア] 権限まわりのテスト観点が未記載",
+    "[テスト品質スコア] 境界値のテスト観点が未記載",
+    "[テスト品質スコア] 既存機能への影響確認(デグレ確認)が未記載",
+    "[テスト品質スコア] 手動確認項目が未記載",
+    "[テスト品質スコア] 実行したテストコマンドが記載されていない",
+    "[AI指示品質スコア] AIへの指示に目的が明記されていない",
+    "[AI指示品質スコア] 変更範囲が限定されていない",
+    "[AI指示品質スコア] 禁止事項が明記されていない",
+    "[AI指示品質スコア] 参照すべきファイルが指定されていない",
+    "[AI指示品質スコア] 完了条件が明記されていない",
+    "[AI指示品質スコア] 「勝手に判断して進めないこと」が明記されていない",
+    "[AI指示品質スコア] AIへの出力形式の指定がない"
+  ],
+  "humanCheckpoints": [
+    "AIが生成した差分が要件・設計ドキュメントの意図と一致しているか確認する",
+    "要件準備スコアが低いため、該当ドキュメントの内容を人間がレビューする",
+    "要件品質スコアが低いため、該当ドキュメントの内容を人間がレビューする",
+    "設計準備スコアが低いため、該当ドキュメントの内容を人間がレビューする",
+    "設計品質スコアが低いため、該当ドキュメントの内容を人間がレビューする",
+    "テスト準備スコアが低いため、該当ドキュメントの内容を人間がレビューする",
+    "テスト品質スコアが低いため、該当ドキュメントの内容を人間がレビューする",
+    "AI指示品質スコアが低いため、該当ドキュメントの内容を人間がレビューする"
+  ],
+  "riskNotes": [
+    "特筆すべき高リスク要因は検出されませんでした"
+  ],
+  "testPresence": {
+    "hasTestFiles": true,
+    "testFileCount": 3
+  },
+  "summary": "main を基準に 24 ファイルが変更され、+3647/-1 行の差分があります。(テスト3件 / DB関連0件 / API関連0件 / docs0件)"
+}

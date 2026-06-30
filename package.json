@@ -1,0 +1,36 @@
+{
+  "name": "ai-dev-doctor",
+  "version": "0.1.0",
+  "description": "AIコーディングを使った開発プロセスを診断し、品質と改善点をレポート化するCLIツール",
+  "license": "MIT",
+  "type": "commonjs",
+  "bin": {
+    "ai-dev-doctor": "dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "src/templates"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json && node -e \"const fs=require('fs');fs.mkdirSync('dist/templates',{recursive:true});fs.cpSync('src/templates','dist/templates',{recursive:true})\"",
+    "dev": "ts-node src/cli.ts",
+    "start": "node dist/cli.js",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "commander": "^12.1.0",
+    "handlebars": "^4.7.8",
+    "simple-git": "^3.27.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.4",
+    "vitest": "^2.1.4"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
