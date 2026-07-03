@@ -1,3 +1,13 @@
+> [!IMPORTANT]
+> **このリポジトリは [FoundRuu](https://github.com/Ruu5LP/foundruu) に統合されました。**
+> リポジトリ診断・品質チェックの機能は `foundruu` CLI（[npm](https://www.npmjs.com/package/foundruu)）として提供されています。
+>
+> ```bash
+> npm install -g foundruu
+> ```
+>
+> 本リポジトリはアーカイブされており、今後の更新は行われません。
+
 # DevDoctor (ai-dev-doctor)
 
 Claude Code / Codex などのAIコーディングを使った開発の後に、`git diff` とプロジェクトの `docs/` を分析し、
